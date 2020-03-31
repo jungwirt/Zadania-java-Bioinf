@@ -1,13 +1,14 @@
 import java.util.*;
+import java.util.StingBuilder;
 
 public class solution{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String dna = scanner.next();
         scanner.close();
-        System.out.println(komplementacja(dna));
+        System.out.println(Odwrocona_komplementacja(dna));
     }
-        public static String komplementacja(String kod) {
+        public static String Odwrocone_komplementacja(String kod) {
             String nowe_dna="";
 
             for(int i=0;i<kod.length();i++){
@@ -24,6 +25,8 @@ public class solution{
                     nowe_dna+="C";
                 }
         }
+       String nowe_odwrocone = new StringBuilder(nowe_dna).reverse();
+       return nowe_odwrocone;
     }
 
     }
