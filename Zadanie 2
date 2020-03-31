@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class solution{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String dna = scanner.next();
+        scanner.close();
+        System.out.println(komplementacja(dna));
+    }
+        public static String komplementacja(String kod) {
+            String nowe_dna="";
+
+            for(int i=0;i<kod.length();i++){
+                if(kod.charAt(i) == 'T'){
+                    nowe_dna+="A";
+                }
+                if(kod.charAt(i) == 'A'){
+                    nowe_dna+="T";
+                }
+                if(kod.charAt(i) == 'C'){
+                    nowe_dna+="G";
+                }
+                if(kod.charAt(i) == 'G'){
+                    nowe_dna+="C";
+                }
+        }
+    }
+
+    }
+    
