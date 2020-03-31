@@ -1,0 +1,18 @@
+package com.example.helloworld;
+
+import java.util.*;
+
+public class rozwiazanie{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        String kod = scanner.next();
+        scanner.close();
+
+        funkcja(kod);
+    }
+    public static String funkcja(String s){
+            System.out.println(s.replace("T", "U"));
+        }
+
+    }
+}
