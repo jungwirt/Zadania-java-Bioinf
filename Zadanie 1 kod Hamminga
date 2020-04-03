@@ -1,0 +1,24 @@
+package com.example.Rozwiazanie;
+
+import java.util.*;
+
+public class Rozwiazanie{
+    public static void main(String[] args) {
+        Scanner skan = new Scanner(System.in);
+        String dna1 = skan.next();
+        String dna2 = skan.next();
+        skan.close();
+        System.out.println(hamming(dna1, dna2));
+    }
+        public static int hamming(String kod1, String kod2) {
+            int licznik=0;
+
+            for(int i=0;i<kod1.length();i++){
+                if(kod1.charAt(i) != kod2.charAt(i)){
+                    licznik++;
+                }
+        }
+            return licznik;
+    }
+
+    }
