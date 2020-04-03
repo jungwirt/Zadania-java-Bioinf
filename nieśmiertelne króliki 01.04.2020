@@ -1,0 +1,21 @@
+package com.example.Rozwiazanie;
+
+import java.util.*;
+import java.math.*;
+
+public class Rozwiazanie{
+    public static void main(String[] args) {
+        Scanner skan = new Scanner(System.in);
+        System.out.println("Podaj ile ma być iteracji: ");
+        int n = skan.next();
+        System.out.println("Podaj liczbe krolikow ktore plodzi para podczas pojedynczej iteracji: ");
+        int k = skan.next();
+        skan.close();
+        System.out.println(kroliki(n, k));
+    }
+        public static int kroliki(int n, int k) {
+        int suma = (int) ((k*(1-(Math.pow(2, n))))/(1-2));
+          return suma+2;
+        }
+
+    }
