@@ -1,0 +1,424 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+
+public class jezyki {
+
+    public interface lista{
+        public void shib();
+    }
+
+    public static class listar implements lista {
+        public void shib() {
+            JFrame szyb = new JFrame("Szybolety");
+            JComboBox<String> listaSzyb = new JComboBox<String>();
+            listaSzyb.addItem("Holendersko-Francuski");
+            listaSzyb.addItem("Fińsko-Rosyjski");
+            listaSzyb.addItem("Polsko-Niemiecki");
+            listaSzyb.addItem("Hiszpańsko-Francuski");
+            listaSzyb.addItem("Fryzyjsko-Holenderski");
+            listaSzyb.setBounds(50, 130,180,20);
+            final JLabel opis = new JLabel();
+            opis.setHorizontalAlignment(JLabel.CENTER);
+            opis.setSize(400,120);
+            szyb.add(opis);
+            szyb.add(listaSzyb);
+            szyb.setLayout(null);
+            szyb.setSize(400,400);
+            szyb.getContentPane().setBackground(Color.LIGHT_GRAY);
+            szyb.setVisible(true);
+            String tresc="<html>Szybolety to znaki rozpoznawcze, często pojedyncze wyrazy lub hasła zawierające charakterystyczną dla danego języka głoskę, której cudzoziemiec, obcy lub wróg nie potrafi wymówić.<br> Szybolety były używane w historii w wielu społeczeństwach jako hasła, proste sposoby samoidentyfikacji, sygnalizowania lojalności i pokrewieństwa, utrzymywania tradycyjnej segregacji lub ochrony przed prawdziwymi lub postrzeganymi zagrożeniami.</html>";
+            opis.setText(tresc);
+
+            listaSzyb.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent event) {
+                    JComboBox<String> combo = (JComboBox<String>) event.getSource();
+                    String wybrana_opcja = (String) combo.getSelectedItem();
+
+                    if (wybrana_opcja.equals("Holendersko-Francuski")) {
+                        JFrame hol_fra = new JFrame("Szybolet 1");
+                        JLabel opis1= new JLabel("<html>Schild en vriend: W dniu 18 maja 1302, ludność z Brugii podczas nocnego ataku mordowała francuskich żołnierzy okupujących miasto.<br> Według znanej legendy, brugijczycy budzili każdego mężczyzna z osobna ze swojego łóżka i zmuszali ich do powtórzenia zdania Schild en Vriend (tarcza i przyjaciel).<br> Holender wypowiada Schild z wyraźnym, oddzielnym „s” i „CH”. Będzie on także wymawiać Vriend z dźwięcznym v natomiast francuzi czytają to jako bezdźwięczną f .\n" +
+                                "Każdy Francuz, który nie przeszedł testu został pchnięty nożem na miejscu, w stroju w jakim się znajdował.</html>");
+
+                        hol_fra.setSize(400,400);
+                        hol_fra.add(opis1);
+                        hol_fra.getContentPane().setBackground(Color.LIGHT_GRAY);
+                        hol_fra.setVisible(true);
+                    } else if (wybrana_opcja.equals("Fińsko-Rosyjski")) {
+                        JFrame fin_ru = new JFrame("Szybolet 2");
+                        JLabel opis2= new JLabel("<html>Höyryjyrä: po fińsku oznacza „walec parowy”, wyrażenie używane przez armię fińską podczas II wojny światowej do identyfikacji rosyjskich szpiegów.<br> To słowo jest prawie niemożliwe do wymówienia dla każdego, kto nie jest biegły w języku fińskim, z przednim „ö” i „y” oraz zwiniętym „r”. Dla rosyjskojęzycznych trudne jest także wiodące „h”</html>");
+                        fin_ru.setSize(400,400);
+                        fin_ru.add(opis2);
+                        fin_ru.getContentPane().setBackground(Color.LIGHT_GRAY);
+                        fin_ru.setVisible(true);
+                    } else if (wybrana_opcja.equals("Polsko-Niemiecki")) {
+                        JFrame pol_ger = new JFrame("Szybolet 3");
+                        JLabel opis3= new JLabel("<html>Po stłumieniu buntu wójta Alberta w Krakowie w 1312 roku w którym brali udział w większości niemieckojęzyczni ślązacy do wyłuskania ich z tłumu mieszczan wykorzystywano jako szybolet zdanie ,,Soczewica, koło, miele, młyn''.<br> Każdy w wieku powyżej 7 lat, który nie mógł wymówić tych polskich słów zostawał uśmiercony, wyrzucony z miasta albo też jego własność zostawała skonfiskowana.</html>");
+                        pol_ger.setSize(400,400);
+                        pol_ger.add(opis3);
+                        pol_ger.getContentPane().setBackground(Color.LIGHT_GRAY);
+                        pol_ger.setVisible(true);
+                    } else if (wybrana_opcja.equals("Hiszpańsko-Francuski")) {
+                        JFrame esp_fra = new JFrame("Szybolet 4");
+                        JLabel opis4= new JLabel("<html>W październiku 1937 r. Hiszpańskie słowo pietruszka, perejil, zostało użyte jako szybolet do identyfikacji haitańskich francuskojęzycznych imigrantów mieszkających wzdłuż granicy na Dominikanie.<br> Prezydent Dominikany, Rafael Trujillo, nakazywał egzekucję tych ludzi. Twierdzi się, że w ciągu kilku dni w tak zwanej ,,masakrze pietruszki'' zamordowano od 20 000 do 30 000 osób</html>");
+                        esp_fra.setSize(400,400);
+                        esp_fra.add(opis4);
+                        esp_fra.getContentPane().setBackground(Color.LIGHT_GRAY);
+                        esp_fra.setVisible(true);
+                    } else if (wybrana_opcja.equals("Fryzyjsko-Holenderski")) {
+                        JFrame fry_hol = new JFrame("Szybolet 5");
+                        JLabel opis5= new JLabel("<html>Bûter, brea, en griene tsiis; wa't dat net sizze kin, is gjin oprjochte Fries - oznacza to „masło, chleb żytni i zielony ser, kto nie może tego powiedzieć - nie jest prawdziwym fryzyjczykiem”, szybolet ten był używany przez fryzyjskiego przywódce Gerlofsa Donia podczas buntu fryzyjskiego (1515–1523).<br> Statki, których załoga nie potrafiła tego zdania poprawnie wymówić, były zwykle rabowane, a żołnierze, którzy mieli problemy z wypowiedzeniem go, zostawali ścięci przez samego przywódce buntowników.</html>");
+                        fry_hol.setSize(400,400);
+                        fry_hol.add(opis5);
+                        fry_hol.getContentPane().setBackground(Color.LIGHT_GRAY);
+                        fry_hol.setVisible(true);
+                    }
+
+                }
+            });
+
+
+        }
+    }
+
+    public interface drzewko{
+        public void buk();
+    }
+
+    public static class las implements drzewko{
+        public void buk(){
+            JFrame strona=new JFrame("Drzewko języków europejskich");
+            DefaultMutableTreeNode europa=new DefaultMutableTreeNode("Języki w Europie");
+            DefaultMutableTreeNode indo=new DefaultMutableTreeNode("Języki indoeuropejskie");
+            DefaultMutableTreeNode urgo=new DefaultMutableTreeNode("Języki urgofińskie");
+            europa.add(indo);
+            europa.add(urgo);
+            DefaultMutableTreeNode gem=new DefaultMutableTreeNode("Języki germańskie");
+            DefaultMutableTreeNode rom=new DefaultMutableTreeNode("Języki romańskie");
+            DefaultMutableTreeNode slav=new DefaultMutableTreeNode("Języki Słowiańskie");
+            DefaultMutableTreeNode balt=new DefaultMutableTreeNode("Języki bałtyckie");
+            DefaultMutableTreeNode cel=new DefaultMutableTreeNode("Języki celtyckie");
+            DefaultMutableTreeNode reszta=new DefaultMutableTreeNode("Pozostałe języki indoeuropejskie");
+            indo.add(gem); indo.add(rom); indo.add(slav); indo.add(balt); indo.add(cel); indo.add(reszta);
+
+            DefaultMutableTreeNode sv=new DefaultMutableTreeNode("Język szwedzki");
+            DefaultMutableTreeNode no=new DefaultMutableTreeNode("Język norweski");
+            DefaultMutableTreeNode da=new DefaultMutableTreeNode("Język duński");
+            DefaultMutableTreeNode isla=new DefaultMutableTreeNode("Język islandzki");
+            DefaultMutableTreeNode de=new DefaultMutableTreeNode("Język niemiecki");
+            DefaultMutableTreeNode nld=new DefaultMutableTreeNode("Język niderlandzki");
+            DefaultMutableTreeNode lux=new DefaultMutableTreeNode("Język luksemburski");
+            DefaultMutableTreeNode ang=new DefaultMutableTreeNode("Język angielski");
+            gem.add(sv); gem.add(no); gem.add(da); gem.add(isla); gem.add(de); gem.add(nld); gem.add(lux); gem.add(ang);
+
+            DefaultMutableTreeNode esp=new DefaultMutableTreeNode("Język hiszpański");
+            DefaultMutableTreeNode por=new DefaultMutableTreeNode("Język portugalski");
+            DefaultMutableTreeNode fra=new DefaultMutableTreeNode("Język francuski");
+            DefaultMutableTreeNode ita=new DefaultMutableTreeNode("Język włoski");
+            DefaultMutableTreeNode rum=new DefaultMutableTreeNode("Język rumuński");
+            DefaultMutableTreeNode mold=new DefaultMutableTreeNode("Język mołdawski");
+            rom.add(esp); rom.add(por); rom.add(fra); rom.add(ita); rom.add(rum); rom.add(mold);
+
+            DefaultMutableTreeNode pol=new DefaultMutableTreeNode("Język polski");
+            DefaultMutableTreeNode cze=new DefaultMutableTreeNode("Język czeski");
+            DefaultMutableTreeNode slo=new DefaultMutableTreeNode("Język słowacki");
+            DefaultMutableTreeNode rus=new DefaultMutableTreeNode("Język rosyjski");
+            DefaultMutableTreeNode bel=new DefaultMutableTreeNode("Język białoruski");
+            DefaultMutableTreeNode ukr=new DefaultMutableTreeNode("Język ukraiński");
+            DefaultMutableTreeNode srb=new DefaultMutableTreeNode("Język serbski");
+            DefaultMutableTreeNode hrv=new DefaultMutableTreeNode("Język chorwacki");
+            DefaultMutableTreeNode slv=new DefaultMutableTreeNode("Język słoweński");
+            DefaultMutableTreeNode bul=new DefaultMutableTreeNode("Język bułgarski");
+            DefaultMutableTreeNode mkd=new DefaultMutableTreeNode("Język macedoński");
+            slav.add(pol); slav.add(cze); slav.add(slo); slav.add(rus); slav.add(bel); slav.add(ukr); slav.add(srb); slav.add(hrv); slav.add(slv); slav.add(bul); slav.add(mkd);
+
+            DefaultMutableTreeNode sco=new DefaultMutableTreeNode("Język szkocki");
+            DefaultMutableTreeNode irl=new DefaultMutableTreeNode("Język irlandzki");
+            DefaultMutableTreeNode wal=new DefaultMutableTreeNode("Język walijski");
+            DefaultMutableTreeNode kor=new DefaultMutableTreeNode("Język kornwalijski");
+            DefaultMutableTreeNode bre=new DefaultMutableTreeNode("Język białoruski");
+            cel.add(sco); cel.add(irl); cel.add(wal); cel.add(kor); cel.add(bre);
+
+            DefaultMutableTreeNode lit=new DefaultMutableTreeNode("Język litewski");
+            DefaultMutableTreeNode lat=new DefaultMutableTreeNode("Język łotewski");
+            balt.add(lit); balt.add(lat);
+
+            DefaultMutableTreeNode gre=new DefaultMutableTreeNode("Język grecki");
+            DefaultMutableTreeNode alb=new DefaultMutableTreeNode("Język albański");
+            reszta.add(gre); reszta.add(alb);
+
+            DefaultMutableTreeNode fin=new DefaultMutableTreeNode("Język fiński");
+            DefaultMutableTreeNode est=new DefaultMutableTreeNode("Język estoński");
+            DefaultMutableTreeNode hun=new DefaultMutableTreeNode("Język węgierski");
+            urgo.add(fin); urgo.add(est); urgo.add(hun);
+
+            JTree got=new JTree(europa);
+            strona.add(got);
+            strona.add(new JScrollPane(got));
+            strona.setSize(400,400);
+            strona.getContentPane().setBackground(Color.LIGHT_GRAY);
+            strona.setVisible(true);
+        }
+
+
+    }
+
+
+    public interface wyszukiwarka{
+        void wyszukaj(String państwo);
+    }
+
+    public static class znajdz implements wyszukiwarka {
+        public void wyszukaj(String państwo) {
+            for (int i = 0; i < państwo.length(); i++) {
+                if (państwo.charAt(i) == 'A') {
+                    if (państwo.charAt(i + 1) == 'l') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest albański.");
+                    } else if (państwo.charAt(i + 1) == 'r') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest ormiański.");
+                    } else if (państwo.charAt(i + 1) == 'n') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest kataloński.");
+                    } else if (państwo.charAt(i + 1) == 'u') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest niemiecki.");
+                    }
+                } else if (państwo.charAt(i) == 'B') {
+                    if (państwo.charAt(i + 1) == 'e') {
+                        System.out.println("W tym pańswtie językami urzędowymi są: francuski, niederlandzki oraz niemiecki.");
+                    } else if (państwo.charAt(i + 1) == 'i') {
+                        System.out.println("W tym pańswtie językami urzędowymi są białoruski oraz rosyjski.");
+                    } else if (państwo.charAt(i + 1) == 'o') {
+                        System.out.println("W tym pańswtie nie ma oficjalnego języka urzędowego. W powszechnym użyciu jest bośniacki oraz serbski.");
+                    } else if (państwo.charAt(i + 1) == 'u') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest bułgarski.");
+                    }
+                } else if (państwo.charAt(i) == 'C') {
+                    if (państwo.charAt(i + 1) == 'h') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest chorwacki.");
+                    } else if (państwo.charAt(i + 1) == 'y') {
+                        System.out.println("W tym pańswtie językami urzędowymi są grecki oraz turecki.");
+                    } else if (państwo.charAt(i + 1) == 'z') {
+                        if (państwo.charAt(i + 2) == 'a') {
+                            System.out.println("W tym pańswtie językiem urzędowym jest czarnogórski.");
+                        } else if (państwo.charAt(i + 2) == 'e') {
+                            System.out.println("W tym pańswtie językiem urzędowym jest czeski.");
+                        }
+                    }
+                } else if (państwo.charAt(i) == 'D') {
+                    System.out.println("W tym pańswtie językiem urzędowym jest duński.");
+                } else if (państwo.charAt(i) == 'E') {
+                    System.out.println("W tym państwie językiem urzędowym jest estoński.");
+                } else if (państwo.charAt(i) == 'F') {
+                    if (państwo.charAt(i + 1) == 'i') {
+                        System.out.println("W tym państwie językami urzędowymi są fiński oraz szwedzki");
+                    } else if (państwo.charAt(i + 1) == 'r') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest francuski.");
+                    }
+                } else if (państwo.charAt(i) == 'G') {
+                    if (państwo.charAt(i + 2) == 'e') {
+                        System.out.println("W tym państwie językiem urzędowym jest grecki.");
+                    } else if (państwo.charAt(i + 2) == 'u') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest gruźiński.");
+                    }
+                } else if (państwo.charAt(i) == 'H') {
+                    if (państwo.charAt(i + 1) == 'i') {
+                        System.out.println("W tym państwie językiem urzędowym jest hiszpański. W skali regionu używany także kataloński, galicyjski i baskijski.");
+                    } else if (państwo.charAt(i + 1) == 'o') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest niderlandzki.");
+                    }
+                } else if (państwo.charAt(i) == 'I') {
+                    if (państwo.charAt(i + 1) == 'r') {
+                        System.out.println("W tym państwie językami urzędowymi są irlandzki oraz angielski.");
+                    } else if (państwo.charAt(i + 1) == 's') {
+                        System.out.println("W tym pańswtie językiem urzędowym jest islandzki.");
+                    }
+                } else if (państwo.charAt(i) == 'K') {
+                    System.out.println("W tym państwie językami urzędowymi są serbski oraz albański.");
+                } else if (państwo.charAt(i) == 'L') {
+                    if (państwo.charAt(i + 1) == 'u') {
+                        System.out.println("W tym państwie językami urzędowymi są francuski, niemiecki i luksemburski.");
+                    } else if (państwo.charAt(i + 1) == 'i') {
+                        if (państwo.charAt(i + 2) == 'e') {
+                            System.out.println("W tym państwie językiem urzędowym jest niemiecki.");
+                        } else if (państwo.charAt(i + 2) == 't') {
+                            System.out.println("W tym państwie językiem urzędowym jest litewski.");
+                        }
+                    }
+                } else if (państwo.charAt(i + 1) == 'o' && państwo.charAt(i + 2) == 't') {
+                    System.out.println("W tym państwie językiem urzędowym jest łotewski.");
+                } else if (państwo.charAt(i) == 'M') {
+                    if (państwo.charAt(i + 1) == 'a') {
+                        if (państwo.charAt(i + 2) == 'c') {
+                            System.out.println("W tym państwie językiem urzędowym jest macedoński.");
+                        } else if (państwo.charAt(i + 2) == 'l') {
+                            System.out.println("W tym państwie językiem urzędowym maltański.");
+                        }
+                    } else if (państwo.charAt(i + 1) == 'o') {
+                        if (państwo.charAt(i + 3) == 'd') {
+                            System.out.println("W tym państwie językiem urzędowym jest rumuński (oficjalnie nazywany mołdawskim).");
+                        } else if (państwo.charAt(i + 3) == 'a') {
+                            System.out.println("W tym państwie językiem urzędowym jest francuski.");
+                        }
+                    }
+                } else if (państwo.charAt(i) == 'N') {
+                    if (państwo.charAt(i + 1) == 'o') {
+                        System.out.println("W tym państwie językiem urzędowym jest norweski");
+                    } else if (państwo.charAt(i + 1) == 'i') {
+                        System.out.println("W tym państwie językiem urzędowym jest niemiecki.");
+                    }
+                } else if (państwo.charAt(i) == 'P') {
+                    if (państwo.charAt(i + 2) == 'l') {
+                        System.out.println("W tym państwie językiem urzędowym jest polski");
+                    } else if (państwo.charAt(i + 2) == 'r') {
+                        System.out.println("W tym państwie językiem urzędowym jest portugalski.");
+                    }
+                } else if (państwo.charAt(i) == 'R') {
+                    if (państwo.charAt(i + 1) == 'o') {
+                        System.out.println("W tym państwie językiem urzędowym jest rosyjski");
+                    } else if (państwo.charAt(i + 1) == 'u') {
+                        System.out.println("W tym państwie językiem urzędowym jest rumuński.");
+                    }
+                } else if (państwo.charAt(i) == 'S') {
+                    if (państwo.charAt(i + 1) == 'a') {
+                        System.out.println("W tym państwie językiem urzędowym jest włoski");
+                    } else if (państwo.charAt(i + 1) == 'e') {
+                        System.out.println("W tym państwie językiem urzędowym jest serbski.");
+                    } else if (państwo.charAt(i + 4) == 'a') {
+                        System.out.println("W tym państwie językiem urzędowym jest słowacki.");
+                    } else if (państwo.charAt(i + 4) == 'e') {
+                        System.out.println("W tym państwie językiem urzędowym jest słoweński");
+                    } else if (państwo.charAt(i + 1) == 'z') {
+                        if (państwo.charAt(i + 3) == 'a') {
+                            System.out.println("W tym państwie językami urzędowymi są francuski, niemiecki oraz włoski.");
+                        } else if (państwo.charAt(i + 3) == 'e') {
+                            System.out.println("W tym państwie językiem urzędowym jest szwedzki.");
+                        }
+                    }
+                } else if (państwo.charAt(i) == 'U') {
+                    System.out.println("W tym państwie językiem urzędowym jest ukraiński.");
+                } else if (państwo.charAt(i) == 'W') {
+                    if (państwo.charAt(i + 1) == 'a') {
+                        System.out.println("W tym państwie językiem urzędowym jest łacina.");
+                    } else if (państwo.charAt(i + 2) == 'g') {
+                        System.out.println("W tym państwie językiem urzędowym jest węgierski.");
+                    } else if (państwo.charAt(i + 1) == 'i') {
+                        System.out.println("W tym państwie nie ma oficjalnie języka urzędowego. De facto jest nim język angielski.");
+                    } else if (państwo.charAt(i + 2) == 'o') {
+                        System.out.println("W tym państwie językiem urzędowym jest włoski.");
+                    }
+                }
+            }
+        }
+    }
+
+    static JButton pierwszy, drugi, trzeci, czwarty;
+
+    public static void main(String[] args) {
+        JFrame ramka = new JFrame("Bioinformatyka projekt");
+        JPanel obszar = new JPanel();
+        obszar.setBackground(Color.LIGHT_GRAY);
+
+        JLabel tytuł = new JLabel("Języki i dialekty Europy", SwingConstants.CENTER);
+        tytuł.setFont(new Font("Helvetica", Font.BOLD+Font.ITALIC,22));
+        obszar.add(tytuł);
+
+        JLabel opcje = new JLabel("<html>Opcje programu: <br>   <br>1. Historia i pochodzenie  <br>2. Wyszukiwarka języków <br>3. Drzewo językowe <br>4. Szybolety <br>  <br> </html>", SwingConstants.LEFT);
+        opcje.setFont(new Font("Arial", Font.PLAIN, 16 ));
+
+        pierwszy = new JButton("  1  ");
+        pierwszy.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ramka1 = new JFrame("Bioinformatyka projekt");
+                JPanel obszar1 = new JPanel();
+                obszar1.setBackground(Color.LIGHT_GRAY);
+
+                JLabel tytuł1 = new JLabel("Historia języków indoeuropejskich", SwingConstants.CENTER);
+                tytuł1.setFont(new Font("Helvetica", Font.BOLD+Font.ITALIC,22));
+                obszar1.add(tytuł1);
+                JLabel historia = new JLabel("<html> Wśród językoznawców nie ma zgodności, gdzie znajdowała się pierwotna ojczyzna (Urheimat) języka praindoeuropejskiego.<br> Obecnie dominują dwie hipotezy: pontyjsko-kaspijska, umieszczająca ojczyznę rodziny indoeuropejskiej pomiędzy Morzem Czarnym a Morzem Kaspijskim, oraz anatolijska, według której języki indoeuropejskie wywodzą się z Anatolii, na terenach dzisiejszej Turcji.</html>", SwingConstants.TRAILING);
+                historia.setFont(new Font("Arial", Font.PLAIN, 14 ));
+                obszar1.add(historia);
+
+
+                ramka1.add(obszar1);
+                ramka1.setSize(300, 300);
+                ramka1.setVisible(true);
+            }
+        });
+        drugi = new JButton("  2  ");
+        drugi.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ramka2 = new JFrame("Wyszukiwarka");
+                JLabel nazwak = new JLabel();
+                nazwak.setText("Wpisz nazwę kraju od wilekiej litery: ");
+                nazwak.setBounds(10, -10, 300, 100);
+
+                JLabel label1 = new JLabel();
+                label1.setBounds(10, 110, 200, 100);
+
+                JTextField poletekstowe= new JTextField();
+                poletekstowe.setBounds(110, 50, 130, 30);
+
+                poletekstowe.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                        String slowo=poletekstowe.getText();
+                        znajdz wynik = new znajdz();
+                        wynik.wyszukaj(slowo);
+                    }
+                });
+                ramka2.add(label1);
+                ramka2.add(poletekstowe);
+                ramka2.add(nazwak);
+                ramka2.setSize(300,300);
+                ramka2.setLayout(null);
+                ramka2.setVisible(true);
+                ramka2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
+
+        trzeci = new JButton("  3  ");
+        trzeci.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                las nowe_drzewo = new las();
+                nowe_drzewo.buk();
+            }
+        });
+
+
+        czwarty = new JButton("  4  ");
+        czwarty.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listar lis= new listar();
+                lis.shib();
+            }
+        });
+
+
+
+        obszar.add(pierwszy);
+        obszar.add(drugi);
+        obszar.add(trzeci);
+        obszar.add(czwarty);
+        obszar.add(opcje);
+        ramka.add(obszar);
+        ramka.setSize(300, 300);
+        ramka.setVisible(true);
+
+
+
+
+
+    }
+}
